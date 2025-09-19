@@ -16,12 +16,11 @@ Create a Checkout UI extension (using React)**
 Product data has been imported to the dev store and items have been added to the cart. The sample image below demonstrates this.
 
 
-**Add a custom product metafield for a shipping delay message
-Example content: "Ships in 3-5 business days"**
+**Add a custom product metafield for a shipping delay message Example content: "Ships in 3-5 business days"**
 
-The file path, `extensions/shipping-delay-message/shopify.extension.toml`, has been updated to pull in a custom product metafield with the key **shipping_delay_message**.
+A product metafield has been created. The file path, `extensions/shipping-delay-message/shopify.extension.toml`, has been updated to pull in the newly created product metafield with the key **shipping_delay_message**.
 
-The file path, `extensions/shipping-delay-message/src/Checkout.tsx`, has been updated to fetch this metafield and its value for each cart line item. The target, `purchase.checkout.cart-line-item.render-after`, was leveraged to accomplish this.
+The file path, `extensions/shipping-delay-message/src/Checkout.tsx`, has been updated to fetch this metafield and its value for each cart line item.
 
 **Display the content of this custom metafield in checkout for each product in checkout**
 
@@ -29,7 +28,7 @@ The sample image below demonstrates that there are four distinct products in the
 
 Use your best judgment on the Checkout UI components and placement
 
-The `purchase.checkout.cart-line-item.render-after` target was leveraged here
+The target, `purchase.checkout.cart-line-item.render-after`, was leveraged to accomplish this.
 
 
 ### Metafield in cart lines demo
