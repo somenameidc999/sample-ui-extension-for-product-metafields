@@ -1,78 +1,36 @@
-# Shopify App Template - Extension only
+This repository demonstrates the following:
 
-This is a template for building an [extension-only Shopify app](https://shopify.dev/docs/apps/build/app-extensions/build-extension-only-app). It contains the basics for building a Shopify app that uses only app extensions.
+**Create a git repo to push your code to - share with us after the 2 hours is up (should be around 2 hours and 15 minutes from when you received this email)**
 
-This template doesn't include a server or the ability to embed a page in the Shopify Admin. If you want either of these capabilities, choose the [Remix app template](https://github.com/Shopify/shopify-app-template-remix) instead.
+This is done.
 
-Whether you choose to use this template or another one, you can use your preferred package manager and the Shopify CLI with [these steps](#installing-the-template).
 
-## Benefits
+**Create a Shopify development store (with “Checkout Extensibility” developer preview enabled)**
 
-Shopify apps are built on a variety of Shopify tools to create a great merchant experience. The [create an app](https://shopify.dev/docs/apps/getting-started/create) tutorial in our developer documentation will guide you through creating a Shopify app.
+Dev store has been created and working sample image below demonstrates that the _**NATE-CE**_ store has been created.
 
-This app template does little more than install the CLI and scaffold a repository.
 
-## Getting started
+**You can import default test data and use Dawn
+Create a Checkout UI extension (using React)**
 
-### Requirements
+Product data has been imported to the dev store and items have been added to the cart. The sample image below demonstrates this.
 
-1. You must [download and install Node.js](https://nodejs.org/en/download/) if you don't already have it.
-1. You must [create a Shopify partner account](https://partners.shopify.com/signup) if you don’t have one.
-1. You must create a store for testing if you don't have one, either a [development store](https://help.shopify.com/en/partners/dashboard/development-stores#create-a-development-store) or a [Shopify Plus sandbox store](https://help.shopify.com/en/partners/dashboard/managing-stores/plus-sandbox-store).
 
-### Installing the template
+**Add a custom product metafield for a shipping delay message
+Example content: "Ships in 3-5 business days"**
 
-This template can be installed using your preferred package manager:
+The file path, `extensions/shipping-delay-message/shopify.extension.toml`, has been updated to pull in a custom product metafield with the key **shipping_delay_message**.
 
-Using yarn:
+The file path, `extensions/shipping-delay-message/src/Checkout.tsx`, has been updated to fetch this metafield and its value for each cart line item. The target, `purchase.checkout.cart-line-item.render-after`, was leveraged to accomplish this.
 
-```shell
-yarn create @shopify/app
-```
+**Display the content of this custom metafield in checkout for each product in checkout**
 
-Using npm:
+The sample image below demonstrates that there are four distinct products in the cart on the Shopify checkout page. Each product has a different metafield value in the `custom.shipping_delay_message` metafield.
 
-```shell
-npm init @shopify/app@latest
-```
+Use your best judgment on the Checkout UI components and placement
 
-Using pnpm:
+The `purchase.checkout.cart-line-item.render-after` target was leveraged here
 
-```shell
-pnpm create @shopify/app@latest
-```
 
-This will clone the template and install the required dependencies.
-
-#### Local Development
-
-[The Shopify CLI](https://shopify.dev/docs/apps/tools/cli) connects to an app in your Partners dashboard. It provides environment variables and runs commands in parallel.
-
-You can develop locally using your preferred package manager. Run one of the following commands from the root of your app.
-
-Using yarn:
-
-```shell
-yarn dev
-```
-
-Using npm:
-
-```shell
-npm run dev
-```
-
-Using pnpm:
-
-```shell
-pnpm run dev
-```
-
-Open the URL generated in your console. Once you grant permission to the app, you can start development (such as generating extensions).
-
-## Developer resources
-
-- [Introduction to Shopify apps](https://shopify.dev/docs/apps/getting-started)
-- [App extensions](https://shopify.dev/docs/apps/build/app-extensions)
-- [Extension only apps](https://shopify.dev/docs/apps/build/app-extensions/build-extension-only-app)
-- [Shopify CLI](https://shopify.dev/docs/apps/tools/cli)
+### Metafield in cart lines demo
+[![Image for Working Example](./example.png)](https://github.com/)
